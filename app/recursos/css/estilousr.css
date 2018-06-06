@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    background-color: darkcyan;
+    text-align: center;
+
+      background-attachment: fixed;
+  }
+  .fond{
+    text-align: center;
+    margin: 0 auto;
+    width: 900px;
+    height:860px;
+    border: 3px solid #fff;
+    background-image: url('/app/recursos/img/T.png');
+  }
+  h3{
+      color: blue;
+  }
+  #guardar{
+    background-color: #7499d7;
+    border: 1px solid #3363b2;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 5px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+  
+  }

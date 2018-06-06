@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto X</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <!-- <link rel="stylesheet" href="/app/recursos/css/estilo.css"> -->
+</head>
+<body>
+    <h1>BIENVENIDO</h1>
+    <br>
+    <hr>
+
+    <h3>Este sitio web esta enfocado al aprendizaje de alumnos, en el puedes consultar informacion sobre cada materia asignada</h3>
+    <br>
+    <hr>
+    <h3>Ingresar como:</h3> 
+    <div>
+        <form action="guardarPersona" method="POST">
+                {% csrf_token %}
+            <button class="di">Profesor</button>
+        </form>
+        <form action="sumar" method="POST">
+                {% csrf_token %}
+            <button class="di">Alumno</button> <br>
+        </form>
+         
+        <br>
+        <br>
+    </div>
+
+    <aside>
+        <img src="/app/recursos/img/2.jpg" width="300" height="200" alt="Logo"> 
+        <img src="/app/recursos/img/3.png" width="300" height="200"> 
+        <br>
+    </aside>
+    <footer>
+            <!-- <img src="/app/recursos/img/fb.jpg" alt="Facebook" /> -->
+            <br>
+    <p>Siguenos en:</p>
+            <a title="Facebook" href="https://www.facebook.com/josue.nunez.714"><img src="/app/recursos/img/fb2.png" width="50" height="50" alt="Facebook" /></a>
+            <a title="Github" href="https://github.com/JosueDai"><img src="/app/recursos/img/git.svg" width="50" height="50" alt="Github" /></a>
+   
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu </title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+        <h3>Bienvenido profesor</h3>
+        <br>
+        <br>
+        <hr>
+        <p>En este apartado podras registrar materia asignada, grupo de trabajo etc. </p>
+        <hr>
+        <br>
+
+        <div>
+                <form action="/" method="POST">
+                    <button class="di">Registrar materia</button>
+                </form>
+                <form action="/" method="POST">
+                    <button class="di">Agregar grupo</button> <br>
+                </form>
+                 
+                <br>
+                <br>
+        </div>
+
+       
+        
+</body>
+</html>

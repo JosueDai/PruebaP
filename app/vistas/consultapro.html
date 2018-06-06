@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilousr.css' %}">
+</head>
+<body>
+
+    <h2>Consulta general de profesores</h2>
+    <div class="fond">
+            <table>
+                    <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Edad</th>
+                                <th>Asignatura</th>
+                                <th>Correo</th>
+                                <th>Operaciones</th>
+                            </tr>
+                        </thead>
+        <tbody>
+            {% for fila in registro%}
+            <tr>
+        
+                <td>{{fila.idProfesor}}</td>
+                <td>{{fila.nombre}}</td>
+                <td>{{fila.edad}}</td>
+                <td>{{fila.asignatura}}</td>
+                <td>{{fila.correo}}</td>
+                <!-- <td>{{fila.contraseña}}</td> -->
+                <td>
+                    <form action="editar" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="idProfesor" value="{{fila.idProfesor}}">
+                        <button>Editar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor%}
+        </tbody>
+        </table>
+        
+
+
+
+    </div>
+    
+</body>
+</html>

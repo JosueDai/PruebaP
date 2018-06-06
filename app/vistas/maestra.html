@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titulo %} Titulo Default {% endblock %}</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <h1>Pagina en Django</h1>
+    <hr>
+    {% block contenido %}
+     Contenido dinamico
+    {% endblock %}
+</body>
+</html>

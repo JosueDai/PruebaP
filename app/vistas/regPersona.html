@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de profesor</title>
+    {% load static from staticfiles %}
+    <!-- <link rel="stylesheet" href="{% static 'css/estilo.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/estilousr.css'%}">
+</head>
+<body>
+    <h1>Profesor</h1>
+ <div class="fond">
+     <h3>Registro de profesor</h3>
+    <form action="guardarPersona" method="POST">
+        {% csrf_token %}
+        <!-- <label for="idPersona">ID persona</label> -->
+        <input type="text" name="idProfesor" value="Ingresa idProfesor"  maxlength="15" required>
+        <br>
+        <br>
+        <!-- <label for="nombre">Nombre</label> -->
+        <input type="text" name="nombre" value="Ingresa nombre" maxlength="40" required>
+        <br>
+        <br>
+        <!-- <label for="edad">Edad</label> -->
+        <input type="text" name="edad" value="Ingresa edad" required>
+        <br>
+        <br> 
+        <input type="text" name="asignatura" value="Ingresa asignatura" maxlength="40" required>
+        <br>
+        <br>
+        <input type="text" name="correo" value="Ingresa correo" maxlength="40" required>
+        <br>
+        <br>
+        <input type="text" name="contraseña" value="Ingresa contraseña" maxlength="40" required>
+        <br>
+        <br>
+        <form action="menuP" method="POST">
+            <button id="guardar">Guardar datos</button>
+            <br>
+        </form>
+        <br>
+    </form>
+    <br>
+    <aside>
+            <img src="/app/recursos/img/p1.jpg" width="300" height="200" alt="Logo"> 
+            <img src="/app/recursos/img/p2.jpg" width="300" height="200"> 
+            <br>
+      </aside>
+  </div>  
+
+  
+</body>
+</html>

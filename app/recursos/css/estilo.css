@@ -1,0 +1,32 @@
+body{
+    background-color: darkcyan;
+    text-align: center;
+
+}
+h1{
+    color: brown;
+}
+h3{
+    color: azure;
+}
+.di{
+  background-color: #7499d7;
+  border: 1px solid #3363b2;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 5px;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+
+}
+div{
+    display: inline-flex;
+}
+footer{
+    text-align: right;
+}

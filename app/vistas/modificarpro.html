@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="modificar" method="POST">
+        {% csrf_token %}
+        <input type="text" name="idProfesor" value="{{reg.idProfesor}}">
+        <br>
+        <input type="text" name="nombre" value="{{reg.nombre}}">
+        <br>
+        <!-- <label for="edad">Edad</label> -->
+        <input type="text" name="edad" value="{{reg.edad}}">
+        <br> 
+        <input type="text" name="asignatura" value="{{reg.asignatura}}">
+        <br>
+        <input type="text" name="correo" value="{{reg.correo}}" >
+        <br>
+        <input type="text" name="contraseña" value="{{reg.contraseña}}">
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
