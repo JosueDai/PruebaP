@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro alumno</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilousr.css'%}">
+
+</head>
+<body>
+    <h1>Alumno</h1>
+ <div class="fond">
+     <h3>Registro de alumnos</h3>
+    <form action="guardarAlumno" method="POST">
+        {% csrf_token %}  
+        <input type="text" name="idAlumno" value="Ingresa idAlumno"  maxlength="15" required>
+        <br>
+        <br>
+        <input type="text" name="nombre" value="Ingresa nombre" maxlength="40" required>
+        <br>
+        <br>
+        <input type="text" name="carrera" value="Ingresa carrera" required>
+        <br>
+        <br>
+        <input type="text" name="correo" value="Ingresa correo" maxlength="40" required>
+        <br>
+        <br> 
+        <input type="text" name="numero" value="Ingresa numero" maxlength="20" required>
+        <br>
+        <br>
+        <input type="text" name="contraseña" value="Ingresa contraseña" maxlength="40" required>
+        <br>
+        <br>
+        <form action="menuP" method="POST">
+            <button id="guardar">Guardar datos</button>
+            <br>
+        </form>
+    </div> 
+</body>
+</html>
