@@ -77,6 +77,20 @@ def modificar(request):
       p.save()
     return redirect('consulta')  
 
+def guardarAlumno(request):
+    if 'idAlumno' in request.POST and 'nombre' in request.POST and 'carrera' in request.POST and 'correo' in request.POST and 'numero' in request.POST and 'contraseña' in request.POST:
+     idProfesor=request.POST['idAlumno']
+     nombre=request.POST['nombre']
+     edad=request.POST['carrera']
+     asignatura=request.POST['correo']
+     correo=request.POST['numero']
+     contraseña=request.POST['contraseña']
+     p= models.profesor(idAlumno= idAluno,nombre = nombre, carrera = carrera, correro=correo, numero=numero, contraseña=contraseña)
+     p.save()     
+     return render(request, 'menuProfesor.html',{'msg':'Registro realizado correctamente'})
+    else:
+        return render(request, 'regAlumno.html',{'msg': 'No se puede realizar registro'})  
+
 
 
        
