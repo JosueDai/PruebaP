@@ -1,0 +1,13 @@
+{% extends 'maestra.html'%}
+
+{%block titulo%} Pagina esclava {% endblock%}
+
+{% block contenido%}
+ <h2 style="color: blue">Registro de materia</h2>
+
+ <form action="//" method="POST">
+     {% csrf_token %}
+ </form>
+
+ 
+{%endblock%} 
