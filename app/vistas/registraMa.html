@@ -2,11 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Registro de Materia</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+
 </head>
 <body>
-    <h3>HOLA</h3>
+    <h2> Registrar Materias 123</h2>
+    <form action="Materia/guardarMateria/" method="POST">
+        {% csrf_token %}
+        <br><label for="idMateria"><b>ID Materia:</b> </label><br>
+        <input type="text" name="idMateria" maxlength="15" required>
+        <br><br>
+        <label for="nombre"><b>Nombre de la materia: </b></label><br>
+        <input type="text" name="nombre" maxlength="100" required>
+        <br><br>
+        
+        <label for="descripcion"><b>Descripción:</b> </label><br>
+        <input type="text" name="descripcion" maxlength="150"required>
+        <br><br>
+       
+        <form action="consulta" method="POST">
+            <button id="guardar">Guardar datos</button>
+            <br>
+        </form>
+        <h1>{{msg}}</h1>
+    </form>
+
+
 </body>
 </html>

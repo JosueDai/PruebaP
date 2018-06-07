@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Materia</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'estilo.css' %}">
+
+</head>
+<body>
+
+    <form action="modificar" method="POST">
+        {% csrf_token %}
+        <input type="text" name="idMateria" value="{{reg.iMateria}}">
+        <br><br>
+        
+        <input type="text" name="nombre" value="{{reg.nombre}}">
+        <br><br>
+        
+        <input type="text" name="descripcion" value="{{reg.descripcion}}">
+        <br><br>
+        
+        
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
