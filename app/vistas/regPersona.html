@@ -14,24 +14,24 @@
     <form action="guardarPersona" method="POST">
         {% csrf_token %}
         <!-- <label for="idPersona">ID persona</label> -->
-        <input type="text" name="idProfesor" value="Ingresa idProfesor"  maxlength="15" required>
+        <input type="number" name="idProfesor" value="Ingresa idProfesor" required>
         <br>
         <br>
         <!-- <label for="nombre">Nombre</label> -->
-        <input type="text" name="nombre" value="Ingresa nombre" maxlength="40" required>
+        <input type="text" name="nombre" value="Ingresa nombre" maxlength="15" required>
         <br>
         <br>
         <!-- <label for="edad">Edad</label> -->
-        <input type="text" name="edad" value="Ingresa edad" required>
+        <input type="number" name="edad" value="Ingresa edad" required>
         <br>
         <br> 
-        <input type="text" name="asignatura" value="Ingresa asignatura" maxlength="40" required>
+        <input type="text" name="asignatura" value="Ingresa asignatura" maxlength="15" required>
         <br>
         <br>
-        <input type="text" name="correo" value="Ingresa correo" maxlength="40" required>
+        <input type="text" name="correo" value="Ingresa correo" maxlength="30" required>
         <br>
         <br>
-        <input type="text" name="contraseña" value="Ingresa contraseña" maxlength="40" required>
+        <input type="text" name="contraseña" value="Ingresa contraseña" maxlength="15" required>
         <br>
         <br>
         <form action="menuP" method="POST">

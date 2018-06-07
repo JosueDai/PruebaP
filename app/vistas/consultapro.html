@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Consulta</title>
     {% load static from staticfiles %}
     <link rel="stylesheet" href="{% static 'css/estilousr.css' %}">
+    <script>
+        function eliminar(id,nom){
+            var res = confirm('Confirma eliminar a '+nom+' con el ID '+id);
+            if(res){
+                var formulario = document.getElementById(id);
+                formulario.submit();
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -20,7 +29,7 @@
                                 <th>Correo</th>
                                 <th>Operaciones</th>
                             </tr>
-                        </thead>
+                    </thead>
         <tbody>
             {% for fila in registro%}
             <tr>
@@ -32,10 +41,17 @@
                 <td>{{fila.correo}}</td>
                 <!-- <td>{{fila.contraseña}}</td> -->
                 <td>
-                    <form action="editar" method="POST">
+                    <form action="modificacion/" method="POST">
                         {% csrf_token %}
-                        <input type="hidden" name="idProfesor" value="{{fila.idProfesor}}">
+                        <input name="idProfesor" value="{{fila.idProfesor}}" type="hidden">
                         <button>Editar</button>
+                    </form>
+                </td>
+                <td>
+                    <form id="{{fila.idProfesor}}" action="/inicio/eliminar" method="POST">
+                        {% csrf_token %}
+                        <input name="idProfesor" value="{{fila.idProfesor}}" type="hidden">
+                        <button type="button" onclick="eliminar('{{fila.idProfesor}}','{{fila.nombre}}','{{fila.edad}}','{{fila.asignatura}}','{{fila.correo}}','{{fila.contraseña}}')">Eliminar</button>
                     </form>
                 </td>
             </tr>

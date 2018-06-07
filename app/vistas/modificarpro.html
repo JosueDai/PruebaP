@@ -1,27 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Modificar</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilousr.css' %}">
 </head>
 <body>
 
-    <form action="modificar" method="POST">
+    <h3>Modifica profesor</h3>
+
+    <form action="/inicio/modificar/" method="POST">
         {% csrf_token %}
-        <input type="text" name="idProfesor" value="{{reg.idProfesor}}">
+        <input type="number" name="idProfesor" value="{{reg.idProfesor}}"  required>
         <br>
-        <input type="text" name="nombre" value="{{reg.nombre}}">
         <br>
-        <!-- <label for="edad">Edad</label> -->
-        <input type="text" name="edad" value="{{reg.edad}}">
-        <br> 
-        <input type="text" name="asignatura" value="{{reg.asignatura}}">
+        <input type="text" name="nombre" value="{{reg.nombre}}" maxlength="15" required>
         <br>
-        <input type="text" name="correo" value="{{reg.correo}}" >
         <br>
-        <input type="text" name="contraseña" value="{{reg.contraseña}}">
+        <input type="number" name="edad" value="{{reg.edad}}" required>
         <br>
-        <input type="submit" value="Enviar">
+        <br>
+        <input type="text" name="asignatura" value="{{reg.asignatura}}" maxlength="15" required>
+        <br>
+        <br>
+        <input type="text" name="correo" value="{{reg.correo}}" maxlength="30" required>
+        <br>
+        <br>
+        <input type="text" name="contraseña" value="{{reg.contraseña}}" maxlength="15" required>
+        <br>
+        <br>
+        <input type="submit" value="Guardar">
+        
+                   
     </form>
 </body>
 </html>

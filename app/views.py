@@ -56,26 +56,32 @@ def menuP (request):
      return render(request,'menuProfesor.html')
 
 def consulta(request):
-    registro= models.profesor.objects.all()
-    return render(request,'consultapro.html',{"registro":registro})
+    registro = models.profesor.objects.all()
+    return render(request,'consultapro.html',{"registro": registro })
 
-def editar(request):
+def modificacion(request):
     if 'idProfesor' in request.POST:
-     registro = models.profesor.objects.get(idProfesor=request.POST['idProfesor'])
-     return render(request, 'modificarpro.html',{"reg":registro})
+        registro = models.profesor.objects.get(idProfesor=request.POST['idProfesor'])
+        return render(request,'modificarpro.html',{"reg":registro})
     else:
-     return redirect('consulta/')
+        return redirect('consulta/')
 
 def modificar(request):
     if 'idProfesor' in request.POST and 'nombre' in request.POST and 'edad' in request.POST and 'asignatura' in request.POST and 'correo' in request.POST and 'contraseña' in request.POST:
-      p =models.profesor(idProfesor= request.POST['idProfesor'])
-      p.nombre = request.POST['nombre']
-      p.edad = request.POST['edad']
-      p.asignatura= request.POST['asignatura']
-      p.correo= request.POST['correo']
-      p.contraseña= request.POST['contraseña']
-      p.save()
-    return redirect('consulta')  
+        p = models.profesor(idProfesor = request.POST['idProfesor'])
+        p.nombre=request.POST['nombre']
+        p.edad=request.POST['edad']
+        p.asignatura=request.POST['asignatura']
+        p.correo=request.POST['correo']
+        p.contraseña=request.POST['contraseña']
+        p.save()
+    return redirect('/inicio/consulta', {'op':'Actualizacion Realizada'})
+
+def eliminar(request):
+    if 'idProfesor' in request.POST:
+        per = models.profesor.objects.get(idProfesor=request.POST['idProfesor'])
+        per.delete()
+    return redirect('/inicio/consulta')
 
 
 

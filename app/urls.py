@@ -3,9 +3,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('modificar',views.modificar),
-    path('editar', views.editar),
-    path('consulta', views.consulta),
+    path('eliminar', views.eliminar),
+    path('modificar/', views.modificar),
+    path('consulta/modificacion/', views.modificacion),
+    path('consulta/', views.consulta),
     path('menuP', views.menuP),
     path('guardarPersona', views.guardarPersona),
     path('sumar',views.sumar),
