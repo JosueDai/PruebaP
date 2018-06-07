@@ -11,10 +11,7 @@ urlpatterns = [
     path('RegClase', views.guardaClase),
     path('guardarAlumno', views.guardarAlumno),
     path('RegProfesor', views.guardarPersona),
-    path('sumar',views.sumar),
     path('',views.index),
-    path('nombre',views.nombre),
-    path('esclava',views.esclava)
 
 
 
