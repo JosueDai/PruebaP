@@ -16,4 +16,13 @@ class clase(models.Model):
     clave = models.CharField(max_length=10,primary_key=True)
     idProfesor= models.ForeignKey(profesor, on_delete=models.CASCADE)
     nomClase=models.CharField(max_length=30)
-    nHoras = models.IntegerField()    
+    nHoras = models.IntegerField()  
+class alumno(models.Model):
+    idAlumno = models.IntegerField(max_length=15 ,primary_key=True)
+    nombre = models.CharField(max_length=40)
+    carrera = models.CharField(max_length=40)
+    correo= models.CharField(max_length=40)
+    numero= models.CharField(max_length=20)
+    contraseña=models.CharField(max_length=40)
+
+
