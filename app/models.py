@@ -12,7 +12,8 @@ class profesor(models.Model):
     contraseña = models.CharField(max_length=15)
 
 
-class cliente(models.Model):
+class clase(models.Model):
     clave = models.CharField(max_length=10,primary_key=True)
-    idPersona= models.ForeignKey(profesor, on_delete=models.CASCADE)
-    ncompras = models.IntegerField()    
+    idProfesor= models.ForeignKey(profesor, on_delete=models.CASCADE)
+    nomClase=models.CharField(max_length=30)
+    nHoras = models.IntegerField()    

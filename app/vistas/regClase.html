@@ -1,0 +1,35 @@
+{% extends 'maestra.html'%}
+
+{%block titulo%}Registro de clase{% endblock%}
+
+{% block contenido%}
+ <h2 style="color: blue">Registro de clases</h2>
+
+ <form action="//" method="POST">
+     {% csrf_token %}
+ </form>
+ 
+ <p>En esta vista registra clase de profesor</p>
+
+ <div>
+        <form action="RegClase" method="POST">
+                {% csrf_token %}  
+                <input type="text" name="clave" value="Ingresa clave"  maxlength="10" required>
+                <br>
+                <br>
+                <input type="text" name="idProfesor" value="Ingresa idProfesor"required>
+                <br>
+                <br>
+                <input type="text" name="nomClase" value="Ingresa nombre de clase" required>
+                <br>
+                <br>
+                <input type="text" name="nHoras" value="Ingresa numero de horas" required>
+                <br>
+                <br>
+                <form action="menuP" method="POST">
+                   <button id="guardar">Guardar clase</button>
+                    <br>
+                </form>
+ </div>
+ 
+{%endblock%} 

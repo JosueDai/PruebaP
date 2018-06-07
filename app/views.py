@@ -50,7 +50,7 @@ def guardarPersona(request):
      p.save()     
      return render(request, 'menuProfesor.html',{'msg':'Registro realizado correctamente'})
     else:
-        return render(request, 'regPersona.html',{'msg': 'No se puede realizar registro'})    
+        return render(request, 'regProfesor.html',{'msg': 'No se puede realizar registro'})    
 
 def menuP (request):
      return render(request,'menuProfesor.html')
@@ -85,17 +85,30 @@ def eliminar(request):
 
 def guardarAlumno(request):
     if 'idAlumno' in request.POST and 'nombre' in request.POST and 'carrera' in request.POST and 'correo' in request.POST and 'numero' in request.POST and 'contraseña' in request.POST:
-     idProfesor=request.POST['idAlumno']
+     idAlumno=request.POST['idAlumno']
      nombre=request.POST['nombre']
-     edad=request.POST['carrera']
-     asignatura=request.POST['correo']
-     correo=request.POST['numero']
+     carrera=request.POST['carrera']
+     correo=request.POST['correo']
+     numero=request.POST['numero']
      contraseña=request.POST['contraseña']
-     p= models.profesor(idAlumno= idAluno,nombre = nombre, carrera = carrera, correro=correo, numero=numero, contraseña=contraseña)
+     p= models.Alumn(idAlumno= idAlumno,nombre = nombre, carrera = carrera, correo=correo, numero=numero, contraseña=contraseña)
+     p.save()     
+     return render(request, 'menuAlumno.html',{'msg':'Registro realizado correctamente'})
+    else:
+        return render(request, 'regAlumno.html',{'msg': 'No se puede realizar registro'})  
+
+def guardaClase(request):
+    if 'clave' in request.POST and 'idProfesor' in request.POST and 'nomClase' in request.POST and 'nHoras' in request.POST:
+     clave=request.POST['clave']
+     idProfesor=request.POST['idProfesor']
+     nomClase=request.POST['nomClase']
+     nHoras=request.POST['nHoras']
+     p= models.clase(clave= clave, idProfesor = idProfesor, nomClase = nomClase, nHoras=nHoras)
      p.save()     
      return render(request, 'menuProfesor.html',{'msg':'Registro realizado correctamente'})
     else:
-        return render(request, 'regAlumno.html',{'msg': 'No se puede realizar registro'})  
+        return render(request, 'regClase.html',{'msg': 'No se puede realizar registro'})  
+
 
 
 

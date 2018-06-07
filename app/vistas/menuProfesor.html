@@ -16,8 +16,9 @@
         <br>
 
         <div>
-                <form action="/" method="POST">
-                    <button class="di">Registrar materia</button>
+                <form action="RegClase" method="POST">
+                        {% csrf_token %}
+                    <button class="di">Registrar clase</button>
                 </form>
                 <form action="/" method="POST">
                     <button class="di">Agregar grupo</button> <br>
