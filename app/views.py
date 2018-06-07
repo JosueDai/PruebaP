@@ -11,32 +11,7 @@ from . import models
 
 
 def index(request):
-    return render(request,'index.html')
-
-def nombre(request):
-    valores= range(10)
-    p = persona.Persona()
-    p.iniciar(1,'Josue')
-    p2= persona.Persona()
-    p2.iniciar(2,'Jesus')
-
-    personas= [p,p2]
-    return render(request,'nombre.html',{'personas':personas})
-
-def esclava(request):
-    return render(request, 'esclavo.html')    
-
-def sumar(request):
-    if 'num1' in request.POST and 'num2' in request.POST:
-     n1=request.POST['num1']
-     n2=request.POST['num2']
-     if len(n1)<=0 and len(n2)<=0:
-         return render(request,'esclavo.html')
-     suma= int(n1)+ int(n2)
-     return render(request, 'esclavo.html',{'suma':suma, 'num1':n1, 'num2':n2})
-    else:
-        return render(request,'esclavo.html')
-     
+    return render(request,'index.html')  
 
 def guardarPersona(request):
     if 'idProfesor' in request.POST and 'nombre' in request.POST and 'edad' in request.POST and 'asignatura' in request.POST and 'correo' in request.POST and 'contraseña' in request.POST:
