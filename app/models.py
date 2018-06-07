@@ -18,7 +18,7 @@ class clase(models.Model):
     nomClase=models.CharField(max_length=30)
     nHoras = models.IntegerField()  
 class alumno(models.Model):
-    idAlumno = models.IntegerField(max_length=15 ,primary_key=True)
+    idAlumno = models.IntegerField(primary_key=True)
     nombre = models.CharField(max_length=40)
     carrera = models.CharField(max_length=40)
     correo= models.CharField(max_length=40)
