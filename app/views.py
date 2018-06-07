@@ -99,7 +99,7 @@ def guardarAlumno(request):
 
 def guardaClase(request):
     if 'clave' in request.POST and 'nomClase' in request.POST and 'nHoras' in request.POST and 'idProfesor' in request.POST:
-         clave=request.POST['clave']
+        clave=request.POST['clave']
         nomClase=request.POST['nomClase']
         nHoras=request.POST['nHoras']
         idProfesor=request.POST['idProfesor']
