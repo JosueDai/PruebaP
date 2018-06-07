@@ -91,19 +91,19 @@ def guardarMat(request):
         idMateria=request.POST['idMateria']
         nombre=request.POST['nombre']
         descripcion=request.POST['descripcion']
-        p=models.profesor(idMateria=idMateria,nombre=nombre,descripcion=descripcion)
+        p=models.datos(idMateria=idMateria,nombre=nombre,descripcion=descripcion)
         p.save()
-        return render(request, 'registraMa.html', {'msg' : 'Se registro correctamente..'})
+        return render(request, 'consultaMa.html', {'msg' : 'Se registro correctamente..'})
     else:
         return render(request, 'registraMa.html', {'msg':'El registro no se pudo realizar'})
 
-def consultaMa(request):
-    registro= models.profesor.objects.all()
-    return render(request,'Consulta.html',{"registro":registro})
+def consultaMat(request):
+    registro= models.datos.objects.all()
+    return render(request,'consultaMa.html',{"registro":registro})
 
 def modificarMa(request):
     if 'idMateria' in request.POST and 'nombre' in request.POST and 'descripcion' in request.POST: 
-      p =models.profesor(idMateria= request.POST['idMateria'])
+      p =models.datos(idMateria= request.POST['idMateria'])
       p.nombre = request.POST['nombre']
       p.descripcion = request.POST['descripcion']
       p.save()
@@ -111,7 +111,7 @@ def modificarMa(request):
 
 def editarMa(request):
     if 'idMateria' in request.POST:
-     registro = models.profesor.objects.get(idMateria=request.POST['idMateria'])
+     registro = models.datos.objects.get(idMateria=request.POST['idMateria'])
      return render(request, 'modificarMa.html',{"reg":registro})
     else:
      return redirect('/consulta')

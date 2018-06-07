@@ -12,10 +12,10 @@ urlpatterns = [
     path('guardarAlumno', views.guardarAlumno),
     path('RegProfesor', views.guardarPersona),
 
- path('Materia/guardarMat/', views.guardarMat),
-    path('consultaMa', views.consultaMa),
+    path('guardarMat/', views.guardarMat),
+    path('consultaMat', views.consultaMat),
     path('modificarMa', views.modificarMa),
-     path('editarMa', views.editarMa),
+    path('editarMa', views.editarMa),
 
 
 

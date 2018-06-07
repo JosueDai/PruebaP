@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Consulta</title>
     {% load static from staticfiles %}
-    <link rel="stylesheet" href="{% static '/Vista/estilo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
 <body>
 
@@ -30,7 +30,7 @@
                 
                 <td>
 
-                    <form action="editarMa" method="POST">
+                    <form action="editarMat" method="POST">
                         {% csrf_token %}
                         <input type="hidden" name="idMateria" value="{{fila.idMateria}}">
                         <button>Editar</button>

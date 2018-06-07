@@ -9,7 +9,7 @@
 </head>
 <body>
     <h2> Registrar Materias 123</h2>
-    <form action="Materia/guardarMat/" method="POST">
+    <form action="/inicio/guardarMat/" method="POST">
         {% csrf_token %}
         <br><label for="idMateria"><b>ID Materia:</b> </label><br>
         <input type="text" name="idMateria" maxlength="15" required>
@@ -22,7 +22,7 @@
         <input type="text" name="descripcion" maxlength="150"required>
         <br><br>
        
-        <form action="consulta" method="POST">
+        <form action="consultaMa.html" method="POST">
             <button id="guardar">Guardar datos</button>
             <br>
         </form>
