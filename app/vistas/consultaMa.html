@@ -20,7 +20,7 @@
                             </tr>
                         </thead>
         <tbody>
-            {% for fila in registro%}
+            {% for fila in registro %}
             <tr>
         
                 <td>{{fila.idMateria}}</td>
@@ -30,7 +30,7 @@
                 
                 <td>
 
-                    <form action="editarMat" method="POST">
+                    <form action="editarMa" method="POST">
                         {% csrf_token %}
                         <input type="hidden" name="idMateria" value="{{fila.idMateria}}">
                         <button>Editar</button>
