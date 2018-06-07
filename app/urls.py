@@ -11,7 +11,11 @@ urlpatterns = [
     path('RegClase', views.guardaClase),
     path('guardarAlumno', views.guardarAlumno),
     path('RegProfesor', views.guardarPersona),
-    path('',views.index),
+
+ path('Materia/guardarMat/', views.guardarMat),
+    path('consultaMa', views.consultaMa),
+    path('modificarMa', views.modificarMa),
+     path('editarMa', views.editarMa),
 
 
 
