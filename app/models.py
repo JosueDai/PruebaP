@@ -25,4 +25,9 @@ class alumno(models.Model):
     numero= models.CharField(max_length=20)
     contraseña=models.CharField(max_length=40)
 
+class datos(models.Model):
+    idMateria=models.IntegerField(primary_key=True)
+    nombre=models.CharField(max_length=80)
+    descripcion=models.CharField(max_length=130)
+
 

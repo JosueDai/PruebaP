@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+
+    <h2> Materias Registradas</h2>
+    <div class="fond">
+            <table>
+                    <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>nombre</th>
+                                <th>descripcion</th>
+                              
+                            </tr>
+                        </thead>
+        <tbody>
+            {% for fila in registro %}
+            <tr>
+        
+                <td>{{fila.idMateria}}</td>
+                <td>{{fila.nombre}}</td>
+                <td>{{fila.descripcion}}</td>
+
+                
+                <td>
+
+                    <form action="editarMa" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="idMateria" value="{{fila.idMateria}}">
+                        <button>Editar</button>
+                    </form>
+                    
+                </td>
+                <td>
+                    <form action="Eliminar" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="idMateria" value="{{fila.idMateria}}">
+                        <button>Eliminar</button>
+                    </form>
+                    
+                </td>
+            </tr>
+            {% endfor%}
+        </tbody>
+        </table>
+        <br>
+
+
+
+    </div>
+    
+</body>
+
+</html>
