@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Consulta de alumnos</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilousr.css' %}">
+</head>
+<body>
+        <h3>Bienvenido Alumno</h3>
+        <br>
+        <hr>
+        <p>En este apartado puedes realizar diferentes tareas </p>
+        <hr>
+        <br>
+        <div>
+                <form action="consul" method="POST">
+                        {% csrf_token %}
+                    <button >consulta de registro</button>
+                </form>
+                <form action="/" method="POST">
+                    <button >Agregar grupo</button> <br>
+                </form>
+                 
+                <br>
+                <br>
+        </div>
+</body>
+</html>

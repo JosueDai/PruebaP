@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Consultas</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <script>
+        function elimina(id,nom){
+            var res = confirm('Confirma eliminar a '+nom+' con el ID '+id);
+            if(res){
+                var formulario = document.getElementById(id);
+                formulario.submit();
+            }
+        }
+    </script>
+</head>
+<body>
+        <div class="fond">
+                <table style=" border: solid  2px #000000" >
+                        <thead >
+                                <tr >
+                                    <th>IDALUMNO</th>
+                                    <th>NOMBRE</th>
+                                    <th>CARRERA</th>
+                                    <th>CORREO</th>
+                                    <th>NUMERO</th>
+                                    <th>CONTRASEÑA</th>
+                                    <th>OPERACIONES</th>
+                                    
+                                </tr>
+                        </thead>
+            <tbody >
+                {% for fila in registros %}
+                <tr >
+            
+                    <td style=" border: solid  2px #000000">{{fila.idAlumno}}</td>
+                    <td style=" border: solid  2px #000000">{{fila.nombre}}</td>
+                    <td style=" border: solid  2px #000000">{{fila.carrera}}</td>
+                    <td style=" border: solid  2px #000000">{{fila.correo}}</td>
+                    <td style=" border: solid  2px #000000">{{fila.numero}}</td>
+                    <td style=" border: solid  2px #000000">{{fila.contraseña}}</td>
+                    <td style=" border: solid  2px #000000">
+                        <form action=" modificaAlumno/" method="POST">
+                            {% csrf_token %}
+                            <input name="idAlumno" value="{{fila.idAlumno}}" type="hidden">
+                            <button id="id_{{fila.idAlumno}} "> Editar</button>
+                        </form>
+                    </td>
+                    <td style=" border: solid  2px #000000">
+                       <form id="{{fila.idAlumno}}" action="/inicio/elimina" method="POST">
+                            {% csrf_token %}
+                            <input name="idAlumno" value="{{fila.idAlumno}}" type="hidden">
+                            <button type="button" onclick="elimina('{{fila.idAlumno}}','{{fila.nombre}}','{{fila.carrera}}','{{fila.correo}}','{{fila.numero}}','{{fila.contraseña}}')">Elimina</button>
+                        
+                        </form> 
+                    </td>
+                </tr>
+                {% endfor%}
+    
+</body>
+</html>
+
+
+

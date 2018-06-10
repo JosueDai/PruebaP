@@ -40,15 +40,15 @@ def sumar(request):
 
 def guardarPersona(request):
     if 'idProfesor' in request.POST and 'nombre' in request.POST and 'edad' in request.POST and 'asignatura' in request.POST and 'correo' in request.POST and 'contraseña' in request.POST:
-     idProfesor=request.POST['idProfesor']
-     nombre=request.POST['nombre']
-     edad=request.POST['edad']
-     asignatura=request.POST['asignatura']
-     correo=request.POST['correo']
-     contraseña=request.POST['contraseña']
-     p= models.profesor(idProfesor= idProfesor,nombre = nombre, edad = edad, asignatura=asignatura, correo=correo, contraseña=contraseña)
-     p.save()     
-     return render(request, 'menuProfesor.html',{'msg':'Registro realizado correctamente'})
+        idProfesor=request.POST['idProfesor']
+        nombre=request.POST['nombre']
+        edad=request.POST['edad']
+        asignatura=request.POST['asignatura']
+        correo=request.POST['correo']
+        contraseña=request.POST['contraseña']
+        p= models.profesor(idProfesor= idProfesor,nombre = nombre, edad = edad, asignatura=asignatura, correo=correo, contraseña=contraseña)
+        p.save()     
+        return render(request, 'menuProfesor.html',{'msg':'Registro realizado correctamente'})
     else:
         return render(request, 'regProfesor.html',{'msg': 'No se puede realizar registro'})    
 
@@ -110,6 +110,34 @@ def guardaClase(request):
         return render(request, 'regClase.html',{'msg': 'No se puede realizar registro'})  
 
 
+def consultaAl(request):
+    registros = models.alumno.objects.all()
+    return render(request,'consultasAlu.html',{"registros": registros })
+
+def modificaAlumno(request):
+    if 'idAlumno' in request.POST:
+        registros = models.alumno.objects.get(idAlumno=request.POST['idAlumno'])
+        return render(request,'modificaral.html',{"reg":registros})
+    else:
+        return redirect('consultaAl/')
+def modificarAl(request):
+    if 'idAlumno' in request.POST and 'nombre' in request.POST and 'carrera' in request.POST and 'correo' in request.POST and 'numero' in request.POST and 'contraseña' in request.POST:
+        p = models.alumno(idAlumno = request.POST['idAlumno'])
+        p.nombre=request.POST['nombre']
+        p.carrera=request.POST['carrera']
+        p.correo=request.POST['correo']
+        p.numero=request.POST['numero']
+        p.contraseña=request.POST['contraseña']
+        p.save()
+    return redirect('/inicio/consultaAl', {'op':'Actualizacion Realizada'})
+
+def elimina(request):
+    
+
+    if 'idAlumno' in request.POST:
+        pu = models.alumno.objects.get(idAlumno=request.POST['idAlumno'])
+        pu.delete()
+    return redirect('/inicio/consultaAl')
 
 
        
